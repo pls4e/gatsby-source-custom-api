@@ -36,7 +36,7 @@ exports.sourceNodes = async (
   } = configOptions
 
   const URL = getUrl(process.env.NODE_ENV, url)
-  const data = await fetch(URL, { headers }).then(res => res.json()).catch(err => console.log(err))
+  const data = await fetch(URL, { headers }).then(res => res.json()).then(console.log(res)).catch(err => console.log(err))
 
   // build entities and correct schemas, where necessary
   let entities = flattenEntities(createNodeEntities({
